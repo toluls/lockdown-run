@@ -9,6 +9,73 @@ html {
 }
 
 body {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
+  background-color: $color-black;
+}
+
+.container {
+  color: $color-white;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.header {
+  background-color: $color-dark;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.nav {
+  background-color: $color-main;
+  color: $color-black;
+  padding: .5rem;
+}
+
+.app {
+  padding: 2rem;
+
+  &__banner {
+    width: 100%;
+  } 
+  
+  &__text {
+    margin: 2rem .5rem;
+    text-align: center;
+  }
+
+  &__input {
+    font-size: 1.6rem;
+    color: $color-white;
+    width: 95%;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border: 1px solid $color-main;
+    background-color: $color-black;
+
+    &:focus {
+     border-color: $color-white; 
+    }
+  }
+
+  &__action {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $color-white;
+    width: 95%;
+    padding: 1.5rem 2rem;
+    margin: 1rem;
+    border-radius: 5rem;
+    outline: none;
+    border: none;
+    background-color: $color-main;
+    cursor: pointer;
+  }
 }

@@ -10,10 +10,22 @@
  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
  <link rel="stylesheet" href="css/style.css">
+ <script src="scripts/app.js" defer></script>
+ <title>Lockdown Run Game</title>
 </head>
 <body>
   <div class="container">
-    
+    <header class="header">
+      <nav class="nav hides" id="nav">Game Menu</nav>
+    </header>
+    <main class="app">
+      <section class="app__welcome" id="welcome">
+        <img class="app__banner" src="img/lockdown-run-banner.png" alt="lockdown-run-banner">
+        <p class="app__text" id="app__text">Welcome friend! Enter your name or nickname to get started.</p>
+        <input class="app__input" type="text" id="name" placeholder="Your name or nickname">
+        <button class="app__action" id="start">Get Started</button>
+      </section>
+    </main>    
   </div>
 </body>	
 </html>
