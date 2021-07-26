@@ -2,4 +2,7 @@
 
 Engagiix app and the lockdown run game.
 
-**View at:** [engagiix.com.ng/lockdown-run](https://engagiix.com.ng/lockdown-run)
+### [Click here](https://lockdown-run.toluls.com) to view the app and play the game.
+
+
+![lockdown run banner](img/screenshot.png)
