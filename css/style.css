@@ -1,0 +1,15 @@
+html {
+  font-size: 10px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: "Open Sans", sans-serif;
+}
