@@ -56,16 +56,120 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 5.5rem;
+  width: 100%;
 }
 
-.nav {
-  background-color: #ff6600;
-  color: #000;
-  padding: .5rem;
+.nav__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: .8rem 1.2rem;
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  outline: none;
+  border: none;
+  -webkit-box-shadow: 0 1px 0 #cc5200;
+          box-shadow: 0 1px 0 #cc5200;
+}
+
+.nav__button span {
+  display: block;
+}
+
+.nav__button__bar {
+  height: 2px;
+  background-color: #fff;
+  width: 1.6rem;
+  margin-right: 1rem;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.nav__button__bar::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  width: 1.6rem;
+  margin-right: 1rem;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.nav__button__bar::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  width: 1.6rem;
+  margin-right: 1rem;
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.nav__button__bar--close {
+  height: 2px;
+  background-color: transparent;
+  width: 1.6rem;
+  margin-right: 1rem;
+  position: relative;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.nav__button__bar--close::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  width: 1.6rem;
+  margin-right: 1rem;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.nav__button__bar--close::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  width: 1.6rem;
+  margin-right: 1rem;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 .app {
   padding: 2rem;
+  margin-top: 5.5rem;
 }
 
 .app__banner {
@@ -121,7 +225,7 @@ body {
   font-weight: 600;
   text-align: center;
   color: #ff6600;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .app__dashboard--header {
@@ -145,4 +249,70 @@ body {
 
 .app__dashboard--body strong {
   color: #ff6600;
+}
+
+.app__dashboard--group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #0f0f0f;
+  padding: .1rem .4rem;
+  margin: .5rem;
+  border-radius: 2rem;
+  border: 3px solid #202020;
+}
+
+.app__dashboard--menu {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  background-color: #000;
+  z-index: 9;
+  min-height: calc(100vh - 4rem);
+}
+
+.p {
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin: 1rem;
+  text-align: center;
+}
+
+.p--s {
+  font-size: 1.5rem;
+}
+
+.p--b {
+  font-weight: 600;
+}
+
+.p--m {
+  font-size: 1.6rem;
+}
+
+.p--mb {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.ut__orange {
+  color: #ff6600;
+}
+
+.ut__underline {
+  text-decoration: underline;
+}
+
+.ut__pointer {
+  cursor: pointer;
+}
+
+.ut__margin {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }

@@ -14,6 +14,7 @@ class Player {
     this.name = name;
     this.score = localStorage.getItem('engagiix-playerScore') || 0;
     this.diamonds = localStorage.getItem('engagiix-playerDiamond') || 0;
+    this.policeFine = localStorage.getItem('engagiix-playerFine') || 0;
   } 
 
   saveName() {

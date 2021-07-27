@@ -29,16 +29,108 @@ body {
   display: flex;
   width: 100%;
   justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 5.5rem;
+  width: 100%;
 }
 
 .nav {
-  background-color: $color-main;
-  color: $color-black;
-  padding: .5rem;
+
+  &__button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background: $color-black;
+    color: $color-white;
+    text-align: center;
+    padding: .8rem 1.2rem;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+    outline: none;
+    border: none;
+    box-shadow: 0 1px 0 darken($color-main, 10%);
+
+    & span {
+      display: block;
+    }
+
+    &__bar {
+      height: 2px;
+      background-color: $color-white;
+      width: 1.6rem;
+      margin-right: 1rem;
+      transition: all 1s ease;
+
+      &::before {
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $color-white;
+        width: 1.6rem;
+        margin-right: 1rem;
+        transform: translateY(-5px);
+        transition: all 1s ease;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $color-white;
+        width: 1.6rem;
+        margin-right: 1rem;
+        transform: translateY(3px);
+        transition: all 1s ease;
+      }
+    }
+
+    &__bar--close {
+      height: 2px;
+      background-color: transparent;
+      width: 1.6rem;
+      margin-right: 1rem;
+      position: relative;
+      transition: all 1s ease;
+
+      &::before {
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $color-white;
+        width: 1.6rem;
+        margin-right: 1rem;
+        transform: rotate(135deg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 1s ease;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $color-white;
+        width: 1.6rem;
+        margin-right: 1rem;
+        transform: rotate(-135deg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 1s ease;
+      }
+    }
+  }
 }
 
 .app {
   padding: 2rem;
+  margin-top: 5.5rem;
 
   &__banner {
     width: 100%;
@@ -95,7 +187,7 @@ body {
       font-weight: 600;
       text-align: center;
       color: $color-main;
-      margin: 2rem;
+      margin: 1rem;
     }
 
     &--header {
@@ -120,5 +212,69 @@ body {
         color: $color-main;
       }
     }
+
+    &--group {
+      display: flex;
+      justify-content: flex-start;
+      background-color: lighten($color-black, 6);
+      padding: .1rem .4rem;
+      margin: .5rem;
+      border-radius: 2rem;
+      border: 3px solid $color-dark;
+    }
+
+    &--menu {
+      position: fixed;
+      top: 5rem;
+      left: 0;
+      width: 100%;
+      padding: 2rem;
+      background-color: $color-black;
+      z-index: 9;
+      min-height: calc(100vh - 4rem);
+    }
+  }
+}
+
+.p {
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin: 1rem;
+  text-align: center;
+
+  &--s {
+    font-size: 1.5rem;
+  }
+
+  &--b {
+    font-weight: 600;
+  }
+
+  &--m {
+    font-size: 1.6rem;
+  }
+
+  &--mb {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+}
+
+.ut {
+  &__orange {
+    color: $color-main;
+  }
+  
+  &__underline {
+    text-decoration: underline;
+  }  
+
+  &__pointer {
+    cursor: pointer;
+  }
+
+  &__margin {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 }
