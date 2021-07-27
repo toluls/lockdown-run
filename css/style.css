@@ -84,6 +84,7 @@ body {
   border: none;
   -webkit-box-shadow: 0 1px 0 #cc5200;
           box-shadow: 0 1px 0 #cc5200;
+  cursor: pointer;
 }
 
 .nav__button span {

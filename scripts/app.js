@@ -1,83 +1,75 @@
-const startForm = document.querySelector('#start');
-const nameInput = document.querySelector('#input');
-const nav = document.querySelector('#nav');
-const navButton = document.querySelector('#nav_button_text');
-const navButtonBar = document.querySelector('#nav_button_bar');
-const welcomeSection = document.querySelector('#welcome_section');
-const dashboardSection = document.querySelector('#dashboard_section');
-const menuSection = document.querySelector('#menu_section');
-
-let player;
-
-// functions and class 
-
-class Player {
-  constructor(name) {
-    this.name = name;
+class Game {
+  constructor(name = 'newPlayer') {
+    this.player = name;
     this.score = localStorage.getItem('engagiix-playerScore') || 0;
     this.diamonds = localStorage.getItem('engagiix-playerDiamond') || 0;
     this.policeFine = localStorage.getItem('engagiix-playerFine') || 0;
-  } 
-
-  saveName() {
-    localStorage.setItem('engagiix-player', this.name);
+    this.inputForm = document.querySelector('#start');
+    this.nameInput = document.querySelector('#input');
+    this.nav = document.querySelector('#nav');
+    this.navButton = document.querySelector('#nav_button_text');
+    this.navButtonBar = document.querySelector('#nav_button_bar');
+    this.welcomeSection = document.querySelector('#welcome_section');
+    this.dashboardSection = document.querySelector('#dashboard_section');
+    this.menuSection = document.querySelector('#menu_section');
+    this.welcomeText = document.querySelector('#user_welcome');
+    this.menuWelcome = document.querySelector('#menu_welcome');
   }
 
-  welcome() {
-    const welcome = document.querySelector('#user_welcome');
-    welcome.textContent = `Hey! ${this.name} ✌🏼`;
+  savePlayer(name) {
+    this.nameInput.value = "";
+    localStorage.setItem('engagiix-player', name);
+    this.player = name;
   }
-}
 
-function clearInput() {
-  nameInput.value = "";
-}
-
-const showDashboard = () => {
-  welcomeSection.classList.add('hide');
-  dashboardSection.classList.remove('hide');
-  nav.classList.remove('hide');
-}
-
-const menuHandler = () => {
-  nav.addEventListener('click', () => {
-    menuSection.classList.toggle('hide');
-    const menuWelcome = document.querySelector('#menu_welcome');
-    menuWelcome.textContent = `Hey! ${player.name} ✌🏼`;
-    navButton.textContent = navButton.textContent === "Game Menu" ? "Close Menu" : "Game Menu";
-    navButtonBar.classList.toggle('nav__button__bar--close');
-  });
-}
-
-const authenticate = name => {
-  player = new Player(name);
-  player.saveName();
-  showDashboard();
-  player.welcome();
-  menuHandler();
-}
-
-const checkPlayer = () => {
-  const name = localStorage.getItem('engagiix-player');
-  if (name) {
-    authenticate(name);
+  authenticate() {
+    this.showDashboard();
+    this.menuHandler();
   }
-  else {
-    welcomeSection.classList.remove('hide');
-    startForm.addEventListener('submit', event => {
+
+  newPlayer() {
+    this.welcomeSection.classList.remove('hide');
+    this.inputForm.addEventListener('submit', event => {
       event.preventDefault();
-      const name = nameInput.value.trim();
-      if (name.length === 0) {
+      const player = this.nameInput.value.trim();
+      if (player.length === 0) {
         alert('Input must not be empty! Kindly enter a valid name.');
       }
       else {
-        clearInput();
-        authenticate(name); 
+        this.savePlayer(player);
+        this.authenticate(); 
       }
+    });
+  }
+
+  showDashboard() {
+    this.welcomeSection.classList.add('hide');
+    this.dashboardSection.classList.remove('hide');
+    this.nav.classList.remove('hide');
+    this.welcomeText.textContent = `Hey! ${this.player} ✌🏼`;
+  }
+
+  menuHandler() {
+    this.nav.addEventListener('click', () => {
+      this.menuSection.classList.toggle('hide');
+      this.menuWelcome.textContent = `Hey! ${this.player} ✌🏼`;
+      this.navButton.textContent = this.navButton.textContent === "Game Menu" ? "Close Menu" : "Game Menu";
+      this.navButtonBar.classList.toggle('nav__button__bar--close');
     });
   }
 }
 
-// execution
+const startGame = () => {
+  const player = localStorage.getItem('engagiix-player');
+  if (player) {
+    const game = new Game(player);
+    game.authenticate();
+  }
+  else {
+    const game = new Game();
+    game.newPlayer();
+  }
+}
 
-checkPlayer();
+
+startGame();
