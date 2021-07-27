@@ -15,6 +15,12 @@ class Game {
     this.welcomeText = document.querySelector('#user_welcome');
     this.menuWelcome = document.querySelector('#menu_welcome');
     this.updateName = document.querySelector('#update_info');
+    this.gameButton = document.querySelector('#play_game');
+    this.showScore = document.querySelector('#player_score');
+    this.showDiamonds = document.querySelector('#player_diamonds');
+    this.showDiamondsValue = document.querySelector('#player_diamonds_value');
+    this.showFine = document.querySelector('#player_fine');
+    this.showWallet = document.querySelector('#player_wallet');
   }
 
   savePlayer(name) {
@@ -23,9 +29,25 @@ class Game {
     this.player = name;
   }
 
+  displayDetails() {
+    this.showScore.textContent = this.score;
+    this.showDiamonds.textContent = this.diamonds;
+    this.showDiamondsValue.textContent = `₦ ${this.diamonds * 100}`;
+    this.showFine.textContent = `₦ -${this.policeFine}`;
+    this.showWallet.textContent = `₦ ${(this.diamonds * 100) - this.policeFine}`;
+
+  }
+
+  gameHandler() {
+    this.gameButton.addEventListener('click', () => {
+      location.assign('./play');
+    });
+  }
+
   authenticate() {
     this.showDashboard();
     this.menuHandler();
+    this.gameHandler();
   }
 
   newPlayer() {
@@ -74,6 +96,7 @@ class Game {
       this.navButton.textContent = this.navButton.textContent === "Game Menu" ? "Close Menu" : "Game Menu";
       this.navButtonBar.classList.toggle('nav__button__bar--close');
     });
+    this.displayDetails();
     this.nameUpdateListener();
   }
 }
