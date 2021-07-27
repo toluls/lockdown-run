@@ -24,17 +24,17 @@ class Game {
   }
 
   savePlayer(name) {
-    this.nameInput.value = "";
     localStorage.setItem('engagiix-player', name);
     this.player = name;
   }
 
   displayDetails() {
+    const balance = (this.diamonds * 100) - this.policeFine;
     this.showScore.textContent = this.score;
     this.showDiamonds.textContent = this.diamonds;
-    this.showDiamondsValue.textContent = `₦ ${this.diamonds * 100}`;
-    this.showFine.textContent = `₦ -${this.policeFine}`;
-    this.showWallet.textContent = `₦ ${(this.diamonds * 100) - this.policeFine}`;
+    this.showDiamondsValue.textContent = `₦${this.diamonds * 100}`;
+    this.showFine.textContent = `- ₦${this.policeFine}`;
+    this.showWallet.textContent = `₦${balance > 0 ? balance : 0}`;
 
   }
 
@@ -45,9 +45,14 @@ class Game {
   }
 
   authenticate() {
-    this.showDashboard();
-    this.menuHandler();
-    this.gameHandler();
+    if (this.player) {
+      this.showDashboard();
+      this.menuHandler();
+      this.gameHandler();
+    }
+    else {
+      this.newPlayer();
+    }
   }
 
   newPlayer() {
@@ -103,15 +108,8 @@ class Game {
 
 const startGame = () => {
   const player = localStorage.getItem('engagiix-player');
-  if (player) {
-    const game = new Game(player);
-    game.authenticate();
-  }
-  else {
-    const game = new Game();
-    game.newPlayer();
-  }
+  const game = new Game(player);
+  game.authenticate();
 }
-
 
 startGame();
