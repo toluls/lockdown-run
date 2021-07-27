@@ -27,7 +27,6 @@ body {
   color: #fff;
   padding: 1.5rem 1rem;
   display: flex;
-  width: 100%;
   justify-content: flex-end;
   position: fixed;
   top: 0;
@@ -130,8 +129,16 @@ body {
 }
 
 .app {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  align-content: center;
   padding: 2rem;
   margin-top: 5.5rem;
+
+  &__welcome {
+    @extend %game-box;
+  }
 
   &__banner {
     width: 100%;
@@ -173,14 +180,15 @@ body {
   }
 
   &__dashboard {
+    @extend %game-box;
 
     &--content {
       text-align: center;
-      width: 100%;
       background-color: $color-dark;
       border-radius: 2rem;
-      margin: 1rem 0;
+      margin: 2rem auto;
       padding: 1rem;
+      @extend %game-box;
     }
 
     &--text {
@@ -228,11 +236,11 @@ body {
       position: fixed;
       top: 5rem;
       left: 0;
-      width: 100%;
       padding: 2rem;
       background-color: $color-black;
       z-index: 9;
       min-height: calc(100vh - 4rem);
+      width: 100%;
     }
   }
 }
