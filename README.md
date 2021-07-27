@@ -1,6 +1,4 @@
-# Engagiix Lockdown Run Game
-
-Engagiix app and the lockdown run game.
+# Engagiix Lockdown Run App Game
 
 ### [Click here](https://lockdown-run.toluls.com) to view the app and play the game.
 

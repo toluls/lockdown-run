@@ -39,6 +39,8 @@ class Game {
   }
 
   gameHandler() {
+    // This loads the '/play' url which contains the game index file and game play logic. The rest of the game code was written in JavaScript files within the construct 3 game software.
+       
     this.gameButton.addEventListener('click', () => {
       location.assign('./play');
     });
