@@ -14,6 +14,7 @@ class Game {
     this.menuSection = document.querySelector('#menu_section');
     this.welcomeText = document.querySelector('#user_welcome');
     this.menuWelcome = document.querySelector('#menu_welcome');
+    this.updateName = document.querySelector('#update_info');
   }
 
   savePlayer(name) {
@@ -42,6 +43,23 @@ class Game {
     });
   }
 
+  changeName() {
+    localStorage.clear();
+    location.reload();
+  }
+
+  nameUpdateListener() {
+    this.updateName.addEventListener('click', () => {
+      const proceed = confirm('Your game progress including scores and diamonds will be cleared. Are you sure you want to proceed?');
+      if (proceed) {
+        this.changeName();
+      }
+      else {
+        alert('Action cancelled!');
+      }
+    });
+  }
+
   showDashboard() {
     this.welcomeSection.classList.add('hide');
     this.dashboardSection.classList.remove('hide');
@@ -56,6 +74,7 @@ class Game {
       this.navButton.textContent = this.navButton.textContent === "Game Menu" ? "Close Menu" : "Game Menu";
       this.navButtonBar.classList.toggle('nav__button__bar--close');
     });
+    this.nameUpdateListener();
   }
 }
 
