@@ -235,6 +235,7 @@ body {
     &--group {
       display: flex;
       justify-content: flex-start;
+      width: 100%;
       background-color: lighten($color-black, 6);
       padding: .1rem .4rem;
       margin: .5rem;
@@ -262,6 +263,33 @@ body {
       visibility: visible;
       transform: translateX(0);
     }
+  }
+
+  &__menu-input {
+    background-color: $color-black;
+    color: $color-white;
+    border: 1px solid $color-main;
+    border-radius: 1rem 0 0 1rem;
+    padding: .5rem 1rem;
+    margin: 1rem;
+    margin-right: .5rem;
+    outline: none;
+    font-size: inherit;
+    flex: 2;
+  }
+
+  &__menu-action {
+    background-color: $color-main; 
+    color: $color-white;
+    border-radius: 0 1rem 1rem 0;
+    padding: .5rem 1rem;
+    margin: 1rem;
+    margin-left: 0;
+    outline: none;
+    border: none;
+    font-size: inherit;
+    flex: 1;
+    cursor: pointer;
   }
 }
 

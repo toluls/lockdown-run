@@ -49,10 +49,20 @@
           <p class="p p--mb">Police Fine:</p>
           <p class="p p--m" id="player_fine">0</p>
           </div>
+
+          <div class="app__dashboard--group">
+            <p class="p p--mb">Balance:</p>
+            <p class="p p--m"><span id="player_balance">0</span> <span id="bonus_amount"></span></p>
+          </div>
         
           <div class="app__dashboard--group">
-          <p class="p p--mb">Game Wallet:</p>
-          <p class="p p--m ut__orange"><strong id="player_wallet">0</strong></p>
+            <p class="p p--mb">Game Wallet:</p>
+            <p class="p p--m ut__orange"><strong id="player_wallet">0</strong></p>
+          </div>
+
+          <div class="app__dashboard--group">
+            <input type="text" class="app__menu-input" id="bonus_input" placeholder="enter game bonus code">
+            <button class="app__menu-action" id="bonus_button">Apply</button>
           </div>
         </div>
         <p class="p p--s">Need to change your name?
@@ -87,7 +97,7 @@
               <div class="app__dashboard--header">Game Bonus</div>
               <div class="app__dashboard--body">
                 <p class="p">Achieve a score of <strong id="bonus_challenge">0</strong> or more in your next game and get a <strong>₦4,000</strong> bonus code to offset your fines!</p>
-                <p><strong>Bonus Code: </strong><span id="bonus_code">None for now</span></p>
+                <p><strong>Active Bonus Code: </strong><span id="bonus_code">0</span></p>
               </div>
             </div>
             <button class="app__action app__action--black hide" id="play_control">How To Play</button>

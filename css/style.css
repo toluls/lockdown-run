@@ -283,6 +283,7 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  width: 100%;
   background-color: #0f0f0f;
   padding: .1rem .4rem;
   margin: .5rem;
@@ -312,6 +313,37 @@ body {
   visibility: visible;
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+
+.app__menu-input {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #ff6600;
+  border-radius: 1rem 0 0 1rem;
+  padding: .5rem 1rem;
+  margin: 1rem;
+  margin-right: .5rem;
+  outline: none;
+  font-size: inherit;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.app__menu-action {
+  background-color: #ff6600;
+  color: #fff;
+  border-radius: 0 1rem 1rem 0;
+  padding: .5rem 1rem;
+  margin: 1rem;
+  margin-left: 0;
+  outline: none;
+  border: none;
+  font-size: inherit;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
 }
 
 .slidein {
