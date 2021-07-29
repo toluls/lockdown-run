@@ -75,11 +75,23 @@
         <section class="app__dashboard animate__animated animate__bounceInLeft animate__slow">
           <p class="app__dashboard--text" id="user_welcome"></p>
           <img class="app__banner" src="img/lockdown-run-banner.png" alt="lockdown-run-banner">
-          <div class="app__dashboard--content">
-            <div class="app__dashboard--header">How To Play</div>
-            <div class="app__dashboard--body">
-              <p class="p">Use <strong>single and double swipe up</strong> to jump as you run. Get <b>coins</b> to increase your <b>score</b>, get <b>diamonds</b> for <b>money</b>, avoid police and birds to avoid fines!</p>
+          <div class="app__dashboard--content">            
+            <div class="app_notice" id="play_notice">
+              <div class="app__dashboard--header">How To Play</div>
+              <div class="app__dashboard--body">
+                <p class="p">Use <strong>single and double swipe up</strong> to jump as you run. Get <b>coins</b> to increase your <b>score</b>, get <b>diamonds</b> for <b>money</b>, avoid police and birds to avoid fines!</p>
+              </div>
             </div>
+
+            <div class="app_notice hide" id="bonus_notice">
+              <div class="app__dashboard--header">Game Bonus</div>
+              <div class="app__dashboard--body">
+                <p class="p">Achieve a score of <strong id="bonus_challenge">0</strong> or more in your next game and get a <strong>₦4,000</strong> bonus code to offset your fines!</p>
+                <p><strong>Bonus Code: </strong><span id="bonus_code">None for now</span></p>
+              </div>
+            </div>
+            <button class="app__action app__action--black hide" id="play_control">How To Play</button>
+            <button class="app__action app__action--black" id="bonus_control">Get Game Bonus!</button>
             <button class="app__action animate__animated animate__pulse animate__infinite" id="play_game">Play Lockdown Run</button>
           </div>
         </section>

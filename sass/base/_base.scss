@@ -177,6 +177,16 @@ body {
     border: none;
     background-color: $color-main;
     cursor: pointer;
+
+    &--black {
+      background-color: $color-black;
+      color: $color-white;
+      transition: all .5s linear;
+
+      &:hover {
+        background-color: $color-main;
+      }
+    }
   }
 
   &__dashboard {

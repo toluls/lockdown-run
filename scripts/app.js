@@ -92,6 +92,22 @@ class Game {
     this.appElement.innerHTML = "";
   }
 
+  manageDashboardNotice() {
+    this.bonusControl.addEventListener('click', event => {
+      event.currentTarget.classList.add('hide');
+      this.playNotice.classList.add('hide');
+      this.bonusNotice.classList.remove('hide');
+      this.playControl.classList.remove('hide');
+    });
+
+    this.playControl.addEventListener('click', event => {
+      event.currentTarget.classList.add('hide');
+      this.bonusNotice.classList.add('hide');
+      this.playNotice.classList.remove('hide');
+      this.bonusControl.classList.remove('hide');
+    });
+  }
+
   displayContent(player) {
     this.clearContent();
     if (player) {
@@ -100,6 +116,11 @@ class Game {
       this.welcomeText = document.querySelector('#user_welcome');
       this.welcomeText.textContent = `Hey! ${this.player} ✌🏼`;
       this.gameButton = document.querySelector('#play_game');
+      this.playControl = document.querySelector('#play_control');
+      this.playNotice = document.querySelector('#play_notice');
+      this.bonusControl = document.querySelector('#bonus_control');
+      this.bonusNotice = document.querySelector('#bonus_notice');
+      this.manageDashboardNotice();
     }
     else {
       this.appElement.appendChild(this.welcomeContent);
