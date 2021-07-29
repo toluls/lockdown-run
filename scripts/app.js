@@ -1,21 +1,20 @@
 class Game {
-  constructor(name = 'newPlayer') {
+  constructor(name) {
     this.player = name;
     this.score = localStorage.getItem('engagiix-playerScore') || 0;
     this.diamonds = localStorage.getItem('engagiix-playerDiamond') || 0;
     this.policeFine = localStorage.getItem('engagiix-playerFine') || 0;
-    this.inputForm = document.querySelector('#start');
-    this.nameInput = document.querySelector('#input');
+    this.appElement = document.querySelector('#app');
     this.nav = document.querySelector('#nav');
     this.navButton = document.querySelector('#nav_button_text');
     this.navButtonBar = document.querySelector('#nav_button_bar');
     this.welcomeSection = document.querySelector('#welcome_section');
+    this.welcomeContent = document.importNode(this.welcomeSection.content, true);
     this.dashboardSection = document.querySelector('#dashboard_section');
+    this.dashboardContent = document.importNode(this.dashboardSection.content, true);
     this.menuSection = document.querySelector('#menu_section');
-    this.welcomeText = document.querySelector('#user_welcome');
     this.menuWelcome = document.querySelector('#menu_welcome');
     this.updateName = document.querySelector('#update_info');
-    this.gameButton = document.querySelector('#play_game');
     this.showScore = document.querySelector('#player_score');
     this.showDiamonds = document.querySelector('#player_diamonds');
     this.showDiamondsValue = document.querySelector('#player_diamonds_value');
@@ -28,7 +27,7 @@ class Game {
     this.player = name;
   }
 
-  displayDetails() {
+  displayGameDetails() {
     const balance = (this.diamonds * 100) - this.policeFine;
     this.showScore.textContent = this.score;
     this.showDiamonds.textContent = this.diamonds;
@@ -48,20 +47,20 @@ class Game {
 
   authenticate() {
     if (this.player) {
-      this.showDashboard();
+      this.displayContent(true);
       this.menuHandler();
       this.gameHandler();
     }
     else {
-      this.newPlayer();
+      this.displayContent(false);
     }
   }
 
   newPlayer() {
-    this.welcomeSection.classList.remove('hide');
     this.inputForm.addEventListener('submit', event => {
       event.preventDefault();
       const player = this.nameInput.value.trim();
+      this.nameInput.value = "";
       if (player.length === 0) {
         alert('Input must not be empty! Kindly enter a valid name.');
       }
@@ -72,7 +71,7 @@ class Game {
     });
   }
 
-  changeName() {
+  restartApp() {
     localStorage.clear();
     location.reload();
   }
@@ -81,7 +80,7 @@ class Game {
     this.updateName.addEventListener('click', () => {
       const proceed = confirm('Your game progress including scores and diamonds will be cleared. Are you sure you want to proceed?');
       if (proceed) {
-        this.changeName();
+        this.restartApp();
       }
       else {
         alert('Action cancelled!');
@@ -89,21 +88,35 @@ class Game {
     });
   }
 
-  showDashboard() {
-    this.welcomeSection.classList.add('hide');
-    this.dashboardSection.classList.remove('hide');
-    this.nav.classList.remove('hide');
-    this.welcomeText.textContent = `Hey! ${this.player} ✌🏼`;
+  clearContent() {
+    this.appElement.innerHTML = "";
+  }
+
+  displayContent(player) {
+    this.clearContent();
+    if (player) {
+      this.appElement.appendChild(this.dashboardContent);
+      this.nav.classList.remove('hide');
+      this.welcomeText = document.querySelector('#user_welcome');
+      this.welcomeText.textContent = `Hey! ${this.player} ✌🏼`;
+      this.gameButton = document.querySelector('#play_game');
+    }
+    else {
+      this.appElement.appendChild(this.welcomeContent);
+      this.inputForm = document.querySelector('#start');
+      this.nameInput = document.querySelector('#input');
+      this.newPlayer();
+    }
   }
 
   menuHandler() {
+    this.menuWelcome.textContent = `Hey! ${this.player} ✌🏼`;
     this.nav.addEventListener('click', () => {
       this.menuSection.classList.toggle('hide');
-      this.menuWelcome.textContent = `Hey! ${this.player} ✌🏼`;
       this.navButton.textContent = this.navButton.textContent === "Game Menu" ? "Close Menu" : "Game Menu";
       this.navButtonBar.classList.toggle('nav__button__bar--close');
     });
-    this.displayDetails();
+    this.displayGameDetails();
     this.nameUpdateListener();
   }
 }

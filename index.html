@@ -11,7 +11,7 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
  <link rel="stylesheet" href="css/style.css">
  <script src="scripts/app.js" defer></script>
- <title>Lockdown Run Game</title>
+ <title>Lockdown Run | Play the game in the web app!</title>
 </head>
 <body>
   <div class="container">
@@ -24,28 +24,7 @@
       </nav>
     </header>
     <main class="app">
-      <section class="app__welcome hide animate__animated animate__bounceInLeft animate__slow" id="welcome_section">
-        <img class="app__banner" src="img/lockdown-run-banner.png" alt="lockdown-run-banner">
-        <p class="app__text">Welcome! Enter your name or nickname to get started.</p>
-        <form id="start">
-          <input class="app__input" type="text" id="input" placeholder="Your name or nickname" autocomplete="off" required>
-          <input class="app__action" type="submit" value="Get Started">
-        </form>        
-      </section>
-
-      <section class="app__dashboard hide animate__animated animate__bounceInLeft animate__slow" id="dashboard_section">
-        <p class="app__dashboard--text" id="user_welcome"></p>
-        <img class="app__banner" src="img/lockdown-run-banner.png" alt="lockdown-run-banner">
-
-        <div class="app__dashboard--content">
-          <div class="app__dashboard--header">How To Play</div>
-          <div class="app__dashboard--body">
-            <p class="p">Use <strong>single and double swipe up</strong> to jump as you run. Get <b>coins</b> to increase your <b>score</b>, get <b>diamonds</b> for <b>money</b>, avoid police and birds to avoid fines!</p>
-          </div>
-          <button class="app__action animate__animated animate__pulse animate__infinite" id="play_game">Play Lockdown Run</button>
-        </div>
-      </section>
-
+      <div id="app"></div>
       <section class="app__dashboard--menu hide animate__animated animate__bounceInRight animate__slow" id="menu_section">
         <p class="app__dashboard--text" id="menu_welcome"></p>
         <div class="app__dashboard--content">
@@ -80,6 +59,31 @@
           <br/><span id="update_info" class="p p--s ut__underline ut__pointer">clear game progress to reset your name.</span>
         </p>
       </section>
+      
+      <template id="welcome_section">
+      <section class="app__welcome animate__animated animate__bounceInLeft animate__slow">
+        <img class="app__banner" src="img/lockdown-run-banner.png" alt="lockdown-run-banner">
+        <p class="app__text">Welcome! Enter your name or nickname to get started.</p>
+        <form id="start">
+          <input class="app__input" type="text" id="input" placeholder="Your name or nickname" autocomplete="off" required>
+          <input class="app__action" type="submit" value="Get Started">
+        </form>        
+        </section>
+      </template>
+
+      <template id="dashboard_section">
+        <section class="app__dashboard animate__animated animate__bounceInLeft animate__slow">
+          <p class="app__dashboard--text" id="user_welcome"></p>
+          <img class="app__banner" src="img/lockdown-run-banner.png" alt="lockdown-run-banner">
+          <div class="app__dashboard--content">
+            <div class="app__dashboard--header">How To Play</div>
+            <div class="app__dashboard--body">
+              <p class="p">Use <strong>single and double swipe up</strong> to jump as you run. Get <b>coins</b> to increase your <b>score</b>, get <b>diamonds</b> for <b>money</b>, avoid police and birds to avoid fines!</p>
+            </div>
+            <button class="app__action animate__animated animate__pulse animate__infinite" id="play_game">Play Lockdown Run</button>
+          </div>
+        </section>
+      </template>
     </main>    
   </div>
 </body>	
