@@ -112,7 +112,7 @@ class Game {
   menuHandler() {
     this.menuWelcome.textContent = `Hey! ${this.player} ✌🏼`;
     this.nav.addEventListener('click', () => {
-      this.menuSection.classList.toggle('hide');
+      this.menuSection.classList.toggle('app__dashboard--menu-open');
       this.navButton.textContent = this.navButton.textContent === "Game Menu" ? "Close Menu" : "Game Menu";
       this.navButtonBar.classList.toggle('nav__button__bar--close');
     });

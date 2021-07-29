@@ -290,6 +290,22 @@ body {
   height: 100vh;
   width: 100%;
   overflow: auto;
+  visibility: hidden;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
+}
+
+.app__dashboard--menu-open {
+  visibility: visible;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.slidein {
+  -webkit-animation: slidein 1s linear;
+          animation: slidein 1s linear;
 }
 
 .p {
