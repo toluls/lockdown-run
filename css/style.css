@@ -316,6 +316,7 @@ body {
 }
 
 .app__menu-input {
+  width: 100%;
   background-color: #000;
   color: #fff;
   border: 1px solid #ff6600;
@@ -325,9 +326,9 @@ body {
   margin-right: .5rem;
   outline: none;
   font-size: inherit;
-  -webkit-box-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
 }
 
 .app__menu-action {

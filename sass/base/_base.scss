@@ -266,6 +266,7 @@ body {
   }
 
   &__menu-input {
+    width: 100%;
     background-color: $color-black;
     color: $color-white;
     border: 1px solid $color-main;
@@ -275,7 +276,7 @@ body {
     margin-right: .5rem;
     outline: none;
     font-size: inherit;
-    flex: 2;
+    flex: 3;
   }
 
   &__menu-action {
