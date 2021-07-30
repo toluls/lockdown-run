@@ -26,6 +26,9 @@ class Game {
     this.showBalance = document.querySelector('#player_balance');
     this.showBonusAmount = document.querySelector('#bonus_amount');
     this.showWallet = document.querySelector('#player_wallet');
+    this.bonusModal = document.querySelector('#bonus_modal');
+    this.bonusModalCode = document.querySelector('#bonus_modal_code');
+    this.bonusModalClose = document.querySelector('#bonus_modal_close');
   }
 
   savePlayer(name) {
@@ -153,6 +156,14 @@ class Game {
     localStorage.setItem('engagiix-gameBonus', JSON.stringify(gameBonus));
   }
 
+  displayBonusModal(bonusCode) {
+    this.bonusModal.classList.remove('hide');
+    this.bonusModalCode.textContent = bonusCode;
+    this.bonusModalClose.addEventListener('click', () => {
+      this.bonusModal.classList.add('hide');
+    });
+  }
+
   checkBonusCode() {
     const bonusCode = JSON.parse(localStorage.getItem('engagiix-gameBonus'));
     if (!bonusCode) {
@@ -165,6 +176,7 @@ class Game {
     }
     if (bonusCode.ok) {
       this.bonusCode = bonusCode.bonusCode;
+      this.displayBonusModal(bonusCode.bonusCode);
     }
   }
 
@@ -241,9 +253,11 @@ class Game {
     this.bonusInput = document.querySelector('#bonus_input');
     this.applyButton = document.querySelector('#bonus_button');
     this.applyButton.addEventListener('click', () => {
-      const bonusCode = this.bonusInput.value.trim();      
+      const bonusCode = this.bonusInput.value.trim();
       this.bonusInput.value = "";
       this.authenticateBonus(bonusCode);
+      // close the bonus modal if it's open 
+      this.bonusModal.classList.add('hide');      
     });
   }
 

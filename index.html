@@ -69,6 +69,22 @@
           <br/><span id="update_info" class="p p--s ut__underline ut__pointer">clear game progress to reset your name.</span>
         </p>
       </section>
+      <div class="app__bonus hide animate__animated animate__bounceInUp animate__slow" id="bonus_modal">
+        <div class="app__dashboard--content app__bonus--content">
+          <div class="app__dashboard--header">Congrats! You have a bonus!</div>
+          <div class="app__dashboard--body">
+            <p class="p p--m">Here's your bonus code:</p>
+            <p class="p p--m"><strong id="bonus_modal_code">0</strong></p>
+            <p class="p p--m">Copy the code, open the game menu and apply your code!</p>
+          </div>          
+        </div>
+        <div class="app__bonus--cancel">
+          <span class="p p--s ut__pointer" id="bonus_modal_close">
+            <span class="app__bonus--cancel-icon">x</span>
+            <span class="p p--s ut__underline">close this modal</span>
+          </span>
+        </div>
+      </div>
       
       <template id="welcome_section">
       <section class="app__welcome animate__animated animate__bounceInLeft animate__slow">
