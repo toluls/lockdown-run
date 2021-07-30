@@ -137,15 +137,14 @@ class Game {
   }
 
   // checks scores and sets an appropriate challenge for the next game
-  gameChallenge() {
+  setGameChallenge() {
     if (this.score < this.initialChallenge) {
       this.bonusChallenge = this.initialChallenge;
-      localStorage.setItem('engagiix-bonusChallenge', this.bonusChallenge );
     }
     else {
       this.bonusChallenge = this.score + 900;
-      localStorage.setItem('engagiix-bonusChallenge', this.bonusChallenge);
     }
+    localStorage.setItem('engagiix-bonusChallenge', this.bonusChallenge);
   }
 
   getBonusCode() {
@@ -194,7 +193,7 @@ class Game {
     if (player) {
       this.appElement.appendChild(this.dashboardContent);
       this.applyBonusCode();
-      this.gameChallenge();
+      this.setGameChallenge();
       this.nav.classList.remove('hide');
       this.welcomeText = document.querySelector('#user_welcome');
       this.gameButton = document.querySelector('#play_game');
@@ -227,7 +226,7 @@ class Game {
   authenticateBonus(bonusCode) {
     const savedBonus = JSON.parse(localStorage.getItem('engagiix-gameBonus'));
     if (!savedBonus) {
-      alert(`You haven't achieved the target score. There's no bonus code for now. Close the menu and tap the "Get Game Bonus" button.`);
+      alert(`You haven't achieved the target score of ${this.bonusChallenge}. There's no bonus code for now. Close the menu and tap the "Get Game Bonus" button.`);
       return;
     }
     if (bonusCode.length === 0) {
