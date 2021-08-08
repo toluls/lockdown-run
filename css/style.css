@@ -245,6 +245,17 @@ body {
   padding: 1rem;
 }
 
+.app__dashboard--link {
+  text-decoration: none;
+  color: #ff6600;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.app__dashboard--link:hover {
+  color: #fff;
+}
+
 .app__dashboard--text {
   font-size: 2rem;
   font-weight: 600;

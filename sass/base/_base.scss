@@ -201,6 +201,16 @@ body {
       @extend %game-box;
     }
 
+    &--link {
+      text-decoration: none;
+      color: $color-main;
+      transition: all .3s ease;
+
+      &:hover {
+        color: $color-light;
+      }
+    } 
+
     &--text {
       font-size: 2rem;
       font-weight: 600;
